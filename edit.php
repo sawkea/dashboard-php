@@ -1,5 +1,6 @@
 <?php
     require_once('db.php');
+
     //  Initialisation des variables
     $date_change = '';
     $floor = '';
@@ -7,7 +8,7 @@
     $power = '';
     $brand = '';
     $error = false;
-
+?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
 <div class="container">
     <!-- Titles of the dashboard -->
     <h1>COMMON BUILDING</h1>
-        <h2>Light change</h2>
+        <h2>Edit light change</h2>
 
         <!-- dashboard light change of the common building -->
         <form>

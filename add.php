@@ -1,9 +1,28 @@
+<?php
+    require_once('db.php');
+
+    //  Initialisation des variables
+    $date_change = '';
+    $floor = '';
+    $position = '';
+    $power = '';
+    $brand = '';
+    $error = false;
+
+    // Verification if receive form
+    if count($_POST) > 0{
+        
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>add</title>
+    <!-- link boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
@@ -12,7 +31,7 @@
 <div class="container">
     <!-- Titles of the dashboard -->
     <h1>COMMON BUILDING</h1>
-        <h2>Light change</h2>
+        <h2>Add light change</h2>
 
         <!-- dashboard light change of the common building -->
         <form>

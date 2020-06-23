@@ -84,4 +84,13 @@ $result =$sth->fetchAll(PDO::FETCH_ASSOC);
 ### Modifier la ligne de la date dans le echo
 echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
 
+## Dans la page add.php initialiser les variables
+//  Initialisation des variables
+    $date_change = '';
+    $floor = '';
+    $position = '';
+    $power = '';
+    $brand = '';
+    $error = false;
+
 
