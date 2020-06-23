@@ -19,24 +19,57 @@
         <h2>Listing Light Change</h2>
             <!-- Listing of the dashboard -->
             <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col" type="checkbox">check</th>
-                <th scope="col">#</th>
-                <th scope="col">Date change</th>
-                <th scope="col">Floor</th>
-                <th scope="col">Location</th>
-                <th scope="col">Power</th>
-                <th scope="col">Brand</th>
-                </tr>
-            </thead>
-            <tbody>
+                <thead class="thead-dark">
+                    <tr>
+                        <td scope="col" type="checkbox">check</td>
+                        <td scope="col">#</td>
+                        <td scope="col">Date change</td>
+                        <td scope="col">Floor</td>
+                        <td scope="col">Location</td>
+                        <td scope="col">Power</td>
+                        <td scope="col">Brand</td>
+                    </tr>
 
+            <?php 
+                // Preparation request
+                $sql = 'SELECT id, date_change, floor, position, power, brand FROM light_change';
+                $sth = $dbh->prepare($sql);
+                // Execution request
+                $sth->execute();
+                // Recover result request
+                $result =$sth->fetchAll(PDO::FETCH_ASSOC);
+
+                // French date format management
+                $intlDateFormater = new IntlDateFormatter('fr_fr', IntlDateFormatter::SHORT, IntlDateFormatter::NONE);
+
+                // print data with foreach loop
+                foreach( $result as $row){
+                    echo '<tr>';
+                    echo '<td><input type="checkbox" aria-label="Checkbox for following text input"></td>';
+                    echo '<td>'.$row['id'].'</td>';
+                    echo '<td>'.$row['date_change'].'</td>';
+                    echo '<td>'.$row['floor'].'</td>';
+                    echo '<td>'.$row['position'].'</td>';
+                    echo '<td>'.$row['power'].'</td>';
+                    echo '<td>'.$row['brand'].'</td>';
+                    echo '<tr>';
+                }
+            ?>
+                </thead>
             </table>
-            <a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>
-            <a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>
-            <a href=""><button type="submit" class="btn btn-primary">Delete</button></a>
 
+            <?php 
+                // Buttons add, edit and delete 
+                echo '<a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>';
+                echo '<a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>';
+                echo '<a href="delete.php"><button type="submit" class="btn btn-primary">Delete</button></a>';
+            
+            // Si le nombre d'élément dans le tableau
+            // Alors tableau vide - donc pas d'enregistrement
+            if( count($result) === 0){
+                echo '<p>no work</p>';
+            }
+            ?>
 </div>
 
 

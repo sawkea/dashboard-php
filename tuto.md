@@ -32,7 +32,7 @@ Mettre cette ligne tout en haut du fichier index.php au dessus du html
     require_once('db.php');
 ?>
 
-# Création du listing <html> qui affichera toutes les entrées avec la button add
+# Création du listing <html> qui affichera toutes les entrées avec les buttons add, edit et delete
 <div class="container">
     <!-- Titles of the dashboard -->
     <h1>COMMON BUILDING</h1>
@@ -41,6 +41,7 @@ Mettre cette ligne tout en haut du fichier index.php au dessus du html
             <table class="table">
             <thead class="thead-dark">
                 <tr>
+                <th scope="col" type="checkbox">check</th>
                 <th scope="col">#</th>
                 <th scope="col">Date change</th>
                 <th scope="col">Floor</th>
@@ -51,8 +52,24 @@ Mettre cette ligne tout en haut du fichier index.php au dessus du html
             </thead>
             </table>
             <a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>
-            
+            <a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>
+            <a href=""><button type="submit" class="btn btn-primary">Delete</button></a>
+
 </div>
 
 check case
 <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
+
+# Préparation de la requete sql d'ajout dans phpmyadmin
+SELECT `id`, `date_change`, `floor`, `position`, `power`, `brand` FROM `light-change`
+
+## insertion de cette requête dans index.php
+$sql = 'SELECT id, date_change, floor, position, power, brand FROM light-change';
+"sth" veux dire "statement handle" (manipuler les instructions)
+$sth = $dbh->prepare($sql);
+
+## execution de la requete
+"dbh" veux dire "database handle" (manipuler la base de données)
+$sth->execute();
+
+
