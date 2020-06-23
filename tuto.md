@@ -39,21 +39,17 @@ Mettre cette ligne tout en haut du fichier index.php au dessus du html
         <h2>Listing Light Change</h2>
             <!-- Listing of the dashboard -->
             <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col" type="checkbox">check</th>
-                <th scope="col">#</th>
-                <th scope="col">Date change</th>
-                <th scope="col">Floor</th>
-                <th scope="col">Location</th>
-                <th scope="col">Power</th>
-                <th scope="col">Brand</th>
-                </tr>
-            </thead>
-            </table>
-            <a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>
-            <a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>
-            <a href=""><button type="submit" class="btn btn-primary">Delete</button></a>
+                <thead class="thead-dark">
+                    <tr>
+                        <td scope="col" type="checkbox">check</td>
+                        <td scope="col">#</td>
+                        <td scope="col">Date change</td>
+                        <td scope="col">Floor</td>
+                        <td scope="col">Location</td>
+                        <td scope="col">Power</td>
+                        <td scope="col">Brand</td>
+                    </tr>
+            
 
 </div>
 
@@ -71,5 +67,21 @@ $sth = $dbh->prepare($sql);
 ## execution de la requete
 "dbh" veux dire "database handle" (manipuler la base de données)
 $sth->execute();
+
+## Récupérer le résultat de la requête
+$result =$sth->fetchAll(PDO::FETCH_ASSOC);
+
+## Insérer une condition si le tableau est vide en dessous de <table>
+// Si le nombre d'élément dans le tableau
+// Alors tableau vide - donc pas d'enregistrement
+    if( count($result) === 0){
+        echo '<p>no work</p>';
+    }
+
+## Gestion de la date au format français à mettre après le result
+// French date format management
+    $intlDateFormater = new IntlDateFormatter('fr_fr', IntlDateFormatter::SHORT, IntlDateFormatter::NONE);
+### Modifier la ligne de la date dans le echo
+echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
 
 

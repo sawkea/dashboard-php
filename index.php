@@ -47,7 +47,7 @@
                     echo '<tr>';
                     echo '<td><input type="checkbox" aria-label="Checkbox for following text input"></td>';
                     echo '<td>'.$row['id'].'</td>';
-                    echo '<td>'.$row['date_change'].'</td>';
+                    echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
                     echo '<td>'.$row['floor'].'</td>';
                     echo '<td>'.$row['position'].'</td>';
                     echo '<td>'.$row['power'].'</td>';
