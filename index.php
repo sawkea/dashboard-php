@@ -16,51 +16,27 @@
 <div class="container">
     <!-- Titles of the dashboard -->
     <h1>COMMON BUILDING</h1>
-        <h2>Light change</h2>
+        <h2>Listing Light Change</h2>
+            <!-- Listing of the dashboard -->
+            <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col" type="checkbox">check</th>
+                <th scope="col">#</th>
+                <th scope="col">Date change</th>
+                <th scope="col">Floor</th>
+                <th scope="col">Location</th>
+                <th scope="col">Power</th>
+                <th scope="col">Brand</th>
+                </tr>
+            </thead>
+            <tbody>
 
-        <!-- dashboard light change of the common building -->
-        <form>
+            </table>
+            <a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>
+            <a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>
+            <a href=""><button type="submit" class="btn btn-primary">Delete</button></a>
 
-        <!-- date change -->
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="date_change">Date change</label>
-                <input type="date" class="form-control" id="date_change" name="date_change">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <!-- floor -->
-            <div class="form-group col-md-6">
-                <label for="floor">Floor</label>
-                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor 1, floor 2...">
-            </div>
-            <!-- location -->
-            <div class="form-group col-md-6">
-                <label for="position">Location</label>
-                <select id="position" class="form-control" name="position">
-                    <option selected>Choose...</option>
-                    <option>left</option>
-                    <option>right</option>
-                    <option>background</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <!-- location -->
-            <div class="form-group col-md-6">
-                <label for="power">Light power</label>
-                <input type="text" class="form-control" id="power" name="power" placeholder="25W, 60W, 85W...">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="brand" name="brand">
-            </div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Add</button>
-        </form>
 </div>
 
 

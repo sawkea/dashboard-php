@@ -31,3 +31,28 @@ Mettre cette ligne tout en haut du fichier index.php au dessus du html
 <?PHP 
     require_once('db.php');
 ?>
+
+# Création du listing <html> qui affichera toutes les entrées avec la button add
+<div class="container">
+    <!-- Titles of the dashboard -->
+    <h1>COMMON BUILDING</h1>
+        <h2>Listing Light Change</h2>
+            <!-- Listing of the dashboard -->
+            <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date change</th>
+                <th scope="col">Floor</th>
+                <th scope="col">Location</th>
+                <th scope="col">Power</th>
+                <th scope="col">Brand</th>
+                </tr>
+            </thead>
+            </table>
+            <a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>
+            
+</div>
+
+check case
+<td><input type="checkbox" aria-label="Checkbox for following text input"></td>
