@@ -7,11 +7,87 @@
     $position = '';
     $power = '';
     $brand = '';
+    $id = '';
     $error = false;
 
+
+     // on met entre crochets les noms correspondants à la base de données
+    // $date_change = $date_change['date_change'];
+    // $floor = $floor['floor'];
+    // $position = $position['position'];
+    // $power = $power['power'];
+    // $brand = $brand['brand'];
+    
+    // // htmlentities : Convertit tous les caractères éligibles en entités HTML
+    // $id = htmlentities($_GET['id']);
+
+
+
     // Verification if receive form
-    if count($_POST) > 0{
+    // "trim" - Remove space, start and end the string of characters
+    // "strlen" - Calculate the size the string of characters 
+    if ( count($_POST) > 0){
+        // date_change
+        if (strlen(trim($_POST['date_change']))!== 0){
+            $date_change = trim($_POST['date_change']);
+        }
+        else{
+            $error = true;
+        }
+        // floor
+        if (strlen(trim($_POST['floor']))!== 0){
+            $floor = trim($_POST['floor']);
+        }
+        else{
+            $error = true;
+        }
+        // position
+        if (strlen(trim($_POST['position']))!== 0){
+            $position = trim($_POST['position']);
+        }
+        else{
+            $error = true;
+        }
+        // power
+        if (strlen(trim($_POST['power']))!== 0){
+            $power = trim($_POST['power']);
+        }
+        else{
+            $error = true;
+        }
+        // brand
+        if (strlen(trim($_POST['brand']))!== 0){
+            $brand = trim($_POST['brand']);
+        }
+        else{
+            $error = true;
+        }
         
+        // if no error insert in the database with markers
+        if( $error === false){
+            $sql = "INSERT into light_change(date_change,floor,position,power,brand) VALUES(:date_change, :floor, :position, :power, :brand)";
+          
+        }
+        $sth = $dbh->prepare($sql);
+        // avert data fake "bindParam"
+        $sth->bindValue(':date_change', strftime("%Y-%m-%d", strtotime($date_change)), PDO::PARAM_STR);
+        $sth->bindParam(':floor', $floor, PDO::PARAM_STR);
+        $sth->bindParam(':position', $position, PDO::PARAM_STR);
+        $sth->bindParam(':power', $power, PDO::PARAM_STR);
+        $sth->bindParam(':brand', $brand, PDO::PARAM_STR);
+
+        // en mode edith je bind ce paramètre
+        if( isset($_POST['add']) && isset($_POST['id'])){
+            $sth->bindParam(':id', $id, PDO::PARAM_INT);
+        }
+
+        // execute
+        $sth->execute();
+
+        // Redirection après insertion
+        header('Location: index.php');
+
+    }
 
 
 ?>
@@ -34,7 +110,7 @@
         <h2>Add light change</h2>
 
         <!-- dashboard light change of the common building -->
-        <form>
+        <form method="post">
 
         <!-- date change -->
         <div class="form-row">

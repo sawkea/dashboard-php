@@ -93,4 +93,48 @@ echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
     $brand = '';
     $error = false;
 
+### Vérififer si on reçoit le formulaire
+"trim" enleve les espaces avant et après les chaines de caractères
+"strlen" calcul la longueur d'une chaine de caractères
 
+if count($_POST) > 0{
+        // date_change
+        if (strlen(trim($_POST['date_change']))!== 0){
+            $date_change = trim($_POST['date_change']);
+        }
+        else{
+            $error = true;
+        }
+        // floor
+        if (strlen(trim($_POST['floor']))!== 0){
+            $date_change = trim($_POST['floor']);
+        }
+        else{
+            $error = true;
+        }
+        // position
+        if (strlen(trim($_POST['position']))!== 0){
+            $date_change = trim($_POST['position']);
+        }
+        else{
+            $error = true;
+        }
+        // power
+        if (strlen(trim($_POST['power']))!== 0){
+            $date_change = trim($_POST['power']);
+        }
+        else{
+            $error = true;
+        }
+        // brand
+        if (strlen(trim($_POST['brand']))!== 0){
+            $date_change = trim($_POST['brand']);
+        }
+        else{
+            $error = true;
+        }
+
+        // si pas d'erreur on insère dans la base de données avec des marqueurs
+        if( $error === false){
+            $sql = "INSERT into light_change(date_change, floor, position, power, brand) VALUES(:date_change, :floor, :position, :power, :brand)";
+        }
