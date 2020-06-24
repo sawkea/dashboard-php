@@ -66,7 +66,6 @@
         // if no error insert in the database with markers
         if( $error === false){
             $sql = "INSERT into light_change(date_change,floor,position,power,brand) VALUES(:date_change, :floor, :position, :power, :brand)";
-          
         }
         $sth = $dbh->prepare($sql);
         // avert data fake "bindParam"
@@ -76,20 +75,17 @@
         $sth->bindParam(':power', $power, PDO::PARAM_STR);
         $sth->bindParam(':brand', $brand, PDO::PARAM_STR);
 
-        // en mode edith je bind ce paramètre
-        if( isset($_POST['add']) && isset($_POST['id'])){
-            $sth->bindParam(':id', $id, PDO::PARAM_INT);
-        }
+        // // en mode edith je bind ce paramètre
+        // if( isset($_POST['add']) && isset($_POST['id'])){
+        //     $sth->bindParam(':id', $id, PDO::PARAM_INT);
+        // }
 
         // execute
         $sth->execute();
 
         // Redirection après insertion
         header('Location: index.php');
-
     }
-
-
 ?>
 
 <!DOCTYPE html>

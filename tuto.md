@@ -97,7 +97,7 @@ echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
 "trim" enleve les espaces avant et après les chaines de caractères
 "strlen" calcul la longueur d'une chaine de caractères
 
-if count($_POST) > 0{
+if ( count($_POST) > 0){
         // date_change
         if (strlen(trim($_POST['date_change']))!== 0){
             $date_change = trim($_POST['date_change']);
@@ -107,28 +107,28 @@ if count($_POST) > 0{
         }
         // floor
         if (strlen(trim($_POST['floor']))!== 0){
-            $date_change = trim($_POST['floor']);
+            $floor = trim($_POST['floor']);
         }
         else{
             $error = true;
         }
         // position
         if (strlen(trim($_POST['position']))!== 0){
-            $date_change = trim($_POST['position']);
+            $position = trim($_POST['position']);
         }
         else{
             $error = true;
         }
         // power
         if (strlen(trim($_POST['power']))!== 0){
-            $date_change = trim($_POST['power']);
+            $power = trim($_POST['power']);
         }
         else{
             $error = true;
         }
         // brand
         if (strlen(trim($_POST['brand']))!== 0){
-            $date_change = trim($_POST['brand']);
+            $brand = trim($_POST['brand']);
         }
         else{
             $error = true;
@@ -136,5 +136,24 @@ if count($_POST) > 0{
 
         // si pas d'erreur on insère dans la base de données avec des marqueurs
         if( $error === false){
-            $sql = "INSERT into light_change(date_change, floor, position, power, brand) VALUES(:date_change, :floor, :position, :power, :brand)";
+            $sql = "INSERT into light_change(date_change,floor,position,power,brand) VALUES(:date_change, :floor, :position, :power, :brand)";
         }
+
+        // On prépare
+        $sth = $dbh->prepare($sql);
+
+        // On se protège contre l'injection sql et html avec bind
+        $sth->bindValue(':date_change', strftime("%Y-%m-%d", strtotime($date_change)), PDO::PARAM_STR);
+        $sth->bindParam(':floor', $floor, PDO::PARAM_STR);
+        $sth->bindParam(':position', $position, PDO::PARAM_STR);
+        $sth->bindParam(':power', $power, PDO::PARAM_STR);
+        $sth->bindParam(':brand', $brand, PDO::PARAM_STR);
+
+        // On execute
+        $sth->execute();
+
+        // On redirige vers index.php
+        header('Location: index.php');
+
+
+
