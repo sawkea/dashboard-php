@@ -155,5 +155,17 @@ if ( count($_POST) > 0){
         // On redirige vers index.php
         header('Location: index.php');
 
+# Requete pour supprimer un changement d'ampoule
+## on prepare la requete dans phpmyadmin
+delete FROM change_light where id=:id;
 
+## on créer une page delete.php
+delete.php
+
+## on insère la requête dans la page php en testant si la variable existe
+if( isset($_GET['id'])){
+    // requete de suppression
+    $sql = 'delete FROM change_light where id=:id';
+
+}
 
