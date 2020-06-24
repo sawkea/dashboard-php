@@ -11,18 +11,6 @@
     $error = false;
 
 
-     // on met entre crochets les noms correspondants à la base de données
-    // $date_change = $date_change['date_change'];
-    // $floor = $floor['floor'];
-    // $position = $position['position'];
-    // $power = $power['power'];
-    // $brand = $brand['brand'];
-    
-    // // htmlentities : Convertit tous les caractères éligibles en entités HTML
-    // $id = htmlentities($_GET['id']);
-
-
-
     // Verification if receive form
     // "trim" - Remove space, start and end the string of characters
     // "strlen" - Calculate the size the string of characters 
@@ -75,10 +63,7 @@
         $sth->bindParam(':power', $power, PDO::PARAM_STR);
         $sth->bindParam(':brand', $brand, PDO::PARAM_STR);
 
-        // // en mode edith je bind ce paramètre
-        // if( isset($_POST['add']) && isset($_POST['id'])){
-        //     $sth->bindParam(':id', $id, PDO::PARAM_INT);
-        // }
+
 
         // execute
         $sth->execute();

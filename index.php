@@ -21,14 +21,14 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        
                         <td scope="col">#</td>
                         <td scope="col">Date change</td>
                         <td scope="col">Floor</td>
                         <td scope="col">Location</td>
                         <td scope="col">Power</td>
                         <td scope="col">Brand</td>
-                        <td scope="col" type="checkbox">Trash</td>
+                        <td scope="col"></td>
+                        <td scope="col"></td>
                     </tr>
 
             <?php 
@@ -46,13 +46,13 @@
                 // print data with foreach loop
                 foreach( $result as $row){
                     echo '<tr>';
-                    
                     echo '<td>'.$row['id'].'</td>';
                     echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
                     echo '<td>'.$row['floor'].'</td>';
                     echo '<td>'.$row['position'].'</td>';
                     echo '<td>'.$row['power'].'</td>';
                     echo '<td>'.$row['brand'].'</td>';
+                    echo '<td><a href="edit.php"><span class="far fa-edit"></span></a></td>';
                     echo '<td><a href="delete.php?id='.$row['id'].'" ><span class="fas fa-trash-alt"></span></a></td>';
                     echo '<tr>';
                 }  
@@ -63,7 +63,6 @@
             <?php 
                 // Buttons add, edit and delete 
                 echo '<a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>';
-                echo '<a href="edit.php"><button type="submit" class="btn btn-primary">Edit</button></a>';
             
             // Si le nombre d'élément dans le tableau
             // Alors tableau vide - donc pas d'enregistrement
