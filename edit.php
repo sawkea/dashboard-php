@@ -16,8 +16,8 @@
     $error = false;
 
 
-    if( isset($_GET['id']) && isset($_GET['edit'])){
-        $sql = 'select id, date_change, floor, position, power, brand, from light_change where id=:id';
+    if( isset($_GET['id'])){
+        $sql = 'select id, date_change, floor, position, power, brand from light_change where id=:id';
         
         $sth = $dbh->prepare( $sql );
         
@@ -27,15 +27,15 @@
         
         $data = $sth->fetch(PDO::FETCH_ASSOC);
         
-        //Si pas de resultat de la requête
-        //data est boolean
-        if( gettype($data) === "boolean"){
-            //on redirige la personne sur la page index
-            header('Location: index.php');
+        // //Si pas de resultat de la requête
+        // //data est boolean
+        // if( gettype($data) === "boolean"){
+        //     //on redirige la personne sur la page index
+        //     header('Location: index.php');
         
-            //on arrête le script
-            exit;
-        }
+        //     //on arrête le script
+        //     exit;
+        // }
 
         // on met entre crochets les noms correspondants à la base de données
         $date_change = $data['date_change'];
@@ -90,7 +90,7 @@
         
         // if no error insert in the database with markers
         if( $error === false){
-            if( isset($_POST['edit']) && isset($_POST['id'])){
+            if( isset($_POST['edit'])){
                 $sql = 'UPDATE light_change set date_change=:date_change, floor=:floor, position=:position, power=:power, brand=:brand where id=:id';
             }
         
@@ -104,7 +104,7 @@
         $sth->bindParam(':brand', $brand, PDO::PARAM_STR);
 
         // en mode edith je bind ce paramètre
-        if( isset($_POST['edit']) && isset($_POST['id'])){
+        if( isset($_POST['edit'])){
             $sth->bindParam(':id', $id, PDO::PARAM_INT);
         }
 
@@ -141,7 +141,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="date_change">Date change</label>
-                <input type="date" class="form-control" id="date_change" name="date_change">
+                <input type="date" class="form-control" id="date_change" name="date_change" value="<?=$date_change;?>">
             </div>
         </div>
         
@@ -149,16 +149,16 @@
             <!-- floor -->
             <div class="form-group col-md-6">
                 <label for="floor">Floor</label>
-                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor 1, floor 2...">
+                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor 1, floor 2..." value="<?=$floor;?>">
             </div>
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="position">Location</label>
-                <select id="position" class="form-control" name="position">
-                    <option selected>Choose...</option>
-                    <option>left</option>
-                    <option>right</option>
-                    <option>background</option>
+                <select id="position" class="form-control" name="position" >
+                    <option selected >Choose...</option>
+                    <option <?php if ($position =='left'){echo "selected";}?> >left</option>
+                    <option <?php if ($position =='right'){echo "selected";}?> >right</option>
+                    <option <?php if ($position =='background'){echo "selected";}?> >background</option>
                 </select>
             </div>
         </div>
@@ -167,11 +167,11 @@
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="power">Light power</label>
-                <input type="text" class="form-control" id="power" name="power" placeholder="25W, 60W, 85W...">
+                <input type="text" class="form-control" id="power" name="power" placeholder="25W, 60W, 85W..." value="<?=$power;?>" >
             </div>
             <div class="form-group col-md-6">
                 <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="brand" name="brand">
+                <input type="text" class="form-control" id="brand" name="brand" value="<?=$brand;?>">
             </div>
         </div>
         
@@ -179,10 +179,10 @@
 
             <?php 
             // pour modifier et non pas ajouter
-                if( isset($_GET['id']) && isset($_GET['edit'])){
+                if( isset($_GET['id'])){
             ?>
                     <input type="hidden" name="edit" value="1">
-                    <input type="hidden" name="id" value="<?=$id ?>">
+                    <input type="hidden" name="id" value="<?=$id;?>">
             <?php 
                 }
             ?>

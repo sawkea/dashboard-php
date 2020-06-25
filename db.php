@@ -1,4 +1,9 @@
 <?php
+// define('DATABASE', 'soniah_dashboard');
+// define('USER', 'soniah');
+// define('PWD', 'mW3SxOh6/3S+gQ==');
+// define('HOST', 'localhost');
+// local connection
 define('DATABASE', 'dashboard');
 define('USER', 'root');
 define('PWD', '');
