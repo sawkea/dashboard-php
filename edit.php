@@ -1,6 +1,11 @@
 <?php
     require_once('db.php');
 
+    // DEBUG_________________________________________________________________________________________________________
+    //afficher les erreurs PHP
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
     //  Initialisation des variables
     $date_change = '';
     $floor = '';
@@ -87,12 +92,8 @@
         if( $error === false){
             if( isset($_POST['edit']) && isset($_POST['id'])){
                 $sql = 'UPDATE light_change set date_change=:date_change, floor=:floor, position=:position, power=:power, brand=:brand where id=:id';
-        }
-        else{
-            // on insère
-            $sql = "INSERT INTO stagiaire(date_change,floor, position, power, brand VALUES(:date_change, :floor, :position, :power, :brand)";
-        }
-
+            }
+        
         $sth = $dbh->prepare($sql);
 
         // avert data fake "bindParam"
@@ -131,7 +132,7 @@
 <div class="container">
     <!-- Titles of the dashboard -->
     <h1>COMMON BUILDING</h1>
-        <h2>Add light change</h2>
+        <h2>Edit light change</h2>
 
         <!-- dashboard light change of the common building -->
         <form action="" method="post">
@@ -174,17 +175,17 @@
             </div>
         </div>
         
-        <button type="submit" class="btn btn-primary">Edith</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
 
-        <?php 
+            <?php 
             // pour modifier et non pas ajouter
-            if( isset($_GET['id']) && isset($_GET['edit'])){
-        ?>
-            <input type="hidden" name="edit" value="1">
-            <input type="hidden" name="id" value="<?=$id ?>">
-        <?php 
-            }
-        ?>
+                if( isset($_GET['id']) && isset($_GET['edit'])){
+            ?>
+                    <input type="hidden" name="edit" value="1">
+                    <input type="hidden" name="id" value="<?=$id ?>">
+            <?php 
+                }
+            ?>
         </form>
 </div>
 

@@ -1,0 +1,19 @@
+{
+  "name": "explorateur-php",
+  "version": "1.0.0",
+  "description": "Explorateur PHP",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch style.scss:style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawkea/explorateur-php.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sawkea/explorateur-php/issues"
+  },
+  "homepage": "https://github.com/sawkea/explorateur-php#readme"
+}

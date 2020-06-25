@@ -1,6 +1,11 @@
 <?PHP 
 // Connexion à la base de données
     require_once('db.php');
+
+    // DEBUG_________________________________________________________________________________________________________
+    //afficher les erreurs PHP
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +57,7 @@
                     echo '<td>'.$row['position'].'</td>';
                     echo '<td>'.$row['power'].'</td>';
                     echo '<td>'.$row['brand'].'</td>';
-                    echo '<td><a href="edit.php"><span class="far fa-edit"></span></a></td>';
+                    echo '<td><a href="edit.php?edit=1&id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
                     echo '<td><a href="delete.php?id='.$row['id'].'" ><span class="fas fa-trash-alt"></span></a></td>';
                     echo '<tr>';
                 }  
