@@ -56,6 +56,7 @@ footer > p {
 
 #form-login {
   background-color: var(--color-table-header);
+  height: 100vh;
 }
 #form-login .container {
   background-color: white;
@@ -63,9 +64,16 @@ footer > p {
   max-width: 25rem;
   font-family: var(--font-principal);
 }
+#form-login .container h1 {
+  margin-top: 0;
+}
 #form-login .container label {
   font-size: 1.25rem;
   color: var(--color-action);
+}
+#form-login .container .error {
+  color: red;
+  text-align: center;
 }
 
 @media (max-width: 575.98px) {

@@ -1,3 +1,4 @@
+// variables
 :root{
     --font-principal:   'Baloo Chettan 2';
 	--color-table-header :	#2c3e50;
@@ -6,23 +7,25 @@
     --color-action-hover : 	#21c2f8;
     --color-action:         #696d83;
 }
-
+// Principal
 h1, h2{font-family: var(--font-principal);}
 h1{color: var(--color-table-header);margin-top:2rem;}
 h2{color:var(--color-h2); margin-left: 1rem; align-items: center; font-size: 1.375rem;}
 
-
+// class entete
 .thead-dark tr:nth-child(1) {
     background-color: var(--color-table-header);
     color:var(--color-text-header);
 }
 
+// buttons
 .btn-primary{background-color: var(--color-action);border:none;}
 .btn-primary:hover{background-color: var(--color-action-hover);border:none;}
-
+// buttons action edit and trash
 span{color: var(--color-action);}
 span:hover{color: var(--color-action-hover);}
 
+// footer
 footer > p{
     font-family: var(--font-principal);
     font-size: .75rem;
@@ -34,7 +37,10 @@ footer > p{
 // Form-login
 #form-login{
     background-color: var(--color-table-header);
+    height: 100vh;
+    
     .container{
+        h1{margin-top:0;}
         background-color: white;
         border-radius: 5deg;
         max-width: 25rem;
@@ -44,8 +50,14 @@ footer > p{
             font-size: 1.25rem;
             color: var(--color-action);
         }
+        .error{
+            color: red;
+            text-align: center;
+        }
     }
 }
+
+
 
 // media queries
 // Extra small devices (portrait phones, less than 576px)

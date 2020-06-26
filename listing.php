@@ -1,4 +1,6 @@
-<?PHP 
+<?PHP
+
+session_start();
 // Connexion à la base de données
     require_once('db.php');
     
@@ -6,6 +8,7 @@
     //afficher les erreurs PHP
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
+
 ?>
 
 <?php include 'header.php';?>
@@ -18,6 +21,27 @@
             <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
             <h2>Listing Light Change</h2>
         </div>
+        <a href='index.php?deconnexion=true'><span>Déconnexion</span></a>
+            
+
+            <!-- tester si l'utilisateur est connecté -->
+            <?php
+                if(isset($_GET['deconnexion']))
+                { 
+                   if($_GET['deconnexion']==true)
+                   {  
+                      session_unset();
+                      header("location:login.php");
+                   }
+                }
+                else if($_SESSION['username'] !== ""){
+                    $user = $_SESSION['username'];
+                    // afficher un message
+                    echo "<br>Bonjour $user, vous êtes connectés";
+                }
+            ?>
+
+
             <!-- Listing of the dashboard -->
             <div class="table-responsive">
                 <table class="table">
