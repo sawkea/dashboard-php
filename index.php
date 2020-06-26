@@ -2,6 +2,9 @@
 // Connexion à la base de données
     require_once('db.php');
 
+    // login connection
+    include 'form-login.php';
+    
     // DEBUG_________________________________________________________________________________________________________
     //afficher les erreurs PHP
     error_reporting(E_ALL);

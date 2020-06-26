@@ -54,6 +54,15 @@ footer > p {
   margin-top: 2rem;
 }
 
+#form-login .container {
+  max-width: 25rem;
+  font-family: var(--font-principal);
+}
+#form-login .container label {
+  font-size: 1.25rem;
+  color: var(--color-action);
+}
+
 @media (max-width: 575.98px) {
   .thead-dark td:nth-child(1), .thead-dark td:nth-child(7), .thead-dark td:nth-child(8) {
     display: none;
