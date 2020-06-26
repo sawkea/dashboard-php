@@ -2,83 +2,35 @@
 // Connexion à la base de données
     require_once('db.php');
 
-    // login connection
-    include 'form-login.php';
-    
     // DEBUG_________________________________________________________________________________________________________
     //afficher les erreurs PHP
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 ?>
-
+<!-- header -->
 <?php include 'header.php';?>
 
 <body>
-<div class="container">
-    <!-- Titles of the dashboard -->
-    <h1>COMMON BUILDING</h1>
-        <div class="d-flex align-items-center">
-            <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
-            <h2>Listing Light Change</h2>
+    <div id="form-login">
+        <!-- Form-login -->
+        <div class="container">
+            <h1>CONNECT</h1>
+            <form id="connect">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" spellcheck="false">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                
+                    <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+    
+        <!-- footer -->
+        <?php include 'footer.php';?>
         </div>
-            <!-- Listing of the dashboard -->
-            <div class="table-responsive">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <td scope="col">#</td>
-                            <td scope="col">Date change</td>
-                            <td scope="col">Floor</td>
-                            <td scope="col">Location</td>
-                            <td scope="col">Power</td>
-                            <td scope="col">Brand</td>
-                            <td scope="col"></td>
-                            <td scope="col"></td>
-                        </tr>
-    
-                <?php 
-                    // Preparation request
-                    $sql = 'SELECT id, date_change, floor, position, power, brand FROM light_change';
-                    $sth = $dbh->prepare($sql);
-                    // Execution request
-                    $sth->execute();
-                    // Recover result request
-                    $result =$sth->fetchAll(PDO::FETCH_ASSOC);
-    
-                    // French date format management
-                    $intlDateFormater = new IntlDateFormatter('fr_fr', IntlDateFormatter::SHORT, IntlDateFormatter::NONE);
-    
-                    // print data with foreach loop
-                    foreach( $result as $row){
-                        echo '<tr>';
-                        echo '<td>'.$row['id'].'</td>';
-                        echo '<td>'.$intlDateFormater->format(strtotime($row['date_change'])).'</td>';
-                        echo '<td>'.$row['floor'].'</td>';
-                        echo '<td>'.$row['position'].'</td>';
-                        echo '<td>'.$row['power'].'</td>';
-                        echo '<td>'.$row['brand'].'</td>';
-                        echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
-                        echo '<td><a href="delete.php?id='.$row['id'].'" ><span class="fas fa-trash-alt"></span></a></td>';
-                        echo '<tr>';
-                    }  
-                    ?>
-                    </thead>
-                </table>
-            </div>
-
-            <?php 
-                // Buttons add, edit and delete 
-                echo '<a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>';
-            
-            // Si le nombre d'élément dans le tableau
-            // Alors tableau vide - donc pas d'enregistrement
-            if( count($result) === 0){
-                echo '<p>no work</p>';
-            }
-            ?>  
-
-    <?php include 'footer.php';?>
-
-</div>
+    </div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 }
 
 h1, h2{font-family: var(--font-principal);}
-h1{color: var(--bck-principal);margin-top:2rem;}
+h1{color: var(--color-table-header);margin-top:2rem;}
 h2{color:var(--color-h2); margin-left: 1rem; align-items: center; font-size: 1.375rem;}
 
 
@@ -33,7 +33,10 @@ footer > p{
 
 // Form-login
 #form-login{
+    background-color: var(--color-table-header);
     .container{
+        background-color: white;
+        border-radius: 5deg;
         max-width: 25rem;
         font-family: var(--font-principal);
         
