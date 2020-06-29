@@ -22,7 +22,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
             <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
             <h2>Listing Light Change</h2>
         </div>
-        <div class="d-flex flex-row justify-content-between align-items-end mr-bottom1">
+        <div id="connection" class="d-flex justify-content-between align-items-end mr-bottom1">
         <?php
                 
                 if($_SESSION['username'] !== ""){
@@ -78,7 +78,9 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         echo '<td>'.$row['position'].'</td>';
                         echo '<td>'.$row['power'].'</td>';
                         echo '<td>'.$row['brand'].'</td>';
+                        // button edit
                         echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
+                        // button delete
                         echo '<td><a href="delete.php?id='.$row['id'].'" ><span class="fas fa-trash-alt"></span></a></td>';
                         echo '<tr>';
                     }  

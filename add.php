@@ -2,7 +2,7 @@
     session_start();
 
     if(isset($_SESSION['login']) && $_SESSION['login']===true){
-        
+
     require_once('db.php');
 
     //  Initialisation des variables
@@ -105,18 +105,18 @@
             <div class="form-group col-md-6">
                 <label for="floor">Floor</label>
                 <select id="floor" class="form-control" name="floor" >
-                    <option selected >Choose...</option>
-                    <option <?php if ($floor =='floor 1'){echo "selected";}?> >Floor 1</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 2</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 3</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 4</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 5</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 6</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 7</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 8</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 9</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 10</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 11</option>
+                    <option selected >Floor...</option>
+                    <option>Floor 1</option>
+                    <option>Floor 2</option>
+                    <option>Floor 3</option>
+                    <option>Floor 4</option>
+                    <option>Floor 5</option>
+                    <option>Floor 6</option>
+                    <option>Floor 7</option>
+                    <option>Floor 8</option>
+                    <option>Floor 9</option>
+                    <option>Floor 10</option>
+                    <option>Floor 11</option>
                 </select>
             </div>
             <!-- location -->

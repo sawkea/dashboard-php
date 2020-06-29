@@ -149,18 +149,18 @@
             <div class="form-group col-md-6">
                 <label for="floor">Floor</label>
                 <select id="floor" class="form-control" name="floor" >
-                    <option selected >Choose...</option>
-                    <option <?php if ($floor =='floor 1'){echo "selected";}?> >Floor 1</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 2</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 3</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 4</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 5</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 6</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 7</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 8</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 9</option>
-                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 10</option>
-                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 11</option>
+                    <option selected >Floor...</option>
+                    <option <?php if ($floor =='Floor 1'){echo "selected";}?> >Floor 1</option>
+                    <option <?php if ($floor =='Floor 2'){echo "selected";}?> >Floor 2</option>
+                    <option <?php if ($floor =='Floor 3'){echo "selected";}?> >Floor 3</option>
+                    <option <?php if ($floor =='Floor 4'){echo "selected";}?> >Floor 4</option>
+                    <option <?php if ($floor =='Floor 5'){echo "selected";}?> >Floor 5</option>
+                    <option <?php if ($floor =='Floor 6'){echo "selected";}?> >Floor 6</option>
+                    <option <?php if ($floor =='Floor 7'){echo "selected";}?> >Floor 7</option>
+                    <option <?php if ($floor =='Floor 8'){echo "selected";}?> >Floor 8</option>
+                    <option <?php if ($floor =='Floor 9'){echo "selected";}?> >Floor 9</option>
+                    <option <?php if ($floor =='Floor 10'){echo "selected";}?> >Floor 10</option>
+                    <option <?php if ($floor =='Floor 11'){echo "selected";}?> >Floor 11</option>
                 </select>
             </div>
             <!-- location -->
