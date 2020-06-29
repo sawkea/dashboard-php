@@ -1,14 +1,15 @@
 <?PHP
-
 session_start();
-// Connexion à la base de données
+
+if(isset($_SESSION['login']) && $_SESSION['login']===true){
+    
+// Connection database
     require_once('db.php');
     
     // DEBUG_________________________________________________________________________________________________________
     //afficher les erreurs PHP
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-
 ?>
 
 <?php include 'header.php';?>
@@ -22,22 +23,14 @@ session_start();
             <h2>Listing Light Change</h2>
         </div>
         <div class="d-flex flex-row justify-content-between align-items-end mr-bottom1">
-        <!-- tester si l'utilisateur est connecté -->
         <?php
-                if(isset($_GET['deconnexion']))
-                { 
-                   if($_GET['deconnexion']==true)
-                   {  
-                      session_unset();
-                      header("location:login.php");
-                   }
-                }
-                else if($_SESSION['username'] !== ""){
+                
+                if($_SESSION['username'] !== ""){
                     $user = $_SESSION['username'];
                     // afficher un message
                     echo "<div class='logged-user'><br>Welcome $user, you are connected !</div>";
                 }
-            ?>
+        ?>
             <div class="btn-header">
                 <?php   
                     // Buttons add, edit and delete 
@@ -48,9 +41,7 @@ session_start();
             </div>
         </div>
         
-        
-
-
+    
             <!-- Listing of the dashboard -->
             <div class="table-responsive">
                 <table class="table">
@@ -104,9 +95,17 @@ session_start();
             if( count($result) === 0){
                 echo '<p>no work</p>';
             }
+        
             ?>  
 
-    <?php include 'footer.php';?>
+    <?php include 'footer.php';
+    
+}
+else{
+    header("location: index.php");
+    exit;
+}
+?>
 
 </div>
 </body>

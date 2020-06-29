@@ -4,10 +4,24 @@ session_start();
     //afficher les erreurs PHP
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-    // Connexion à la base de données
 ?>
-<!-- header -->
-<?php include 'header.php';?>
+
+<?php 
+    // test user deconnected
+    if(isset($_GET['deconnexion'])){ 
+        if($_GET['deconnexion']==true){  
+            $_SESSION['login'] = false;
+            session_unset();
+        }
+    }
+    // user is connected
+    if(isset($_SESSION['login']) && $_SESSION['login']===true){
+        header('Location: listing.php');
+        exit;
+    }
+
+    // header 
+    include 'header.php';?>
 
 <body>
     <div class="backg-login">

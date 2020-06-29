@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     require_once('db.php');
 
     // test if the variable exists

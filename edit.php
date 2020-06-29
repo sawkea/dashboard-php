@@ -1,4 +1,8 @@
 <?php
+    session_start();
+
+    if(isset($_SESSION['login']) && $_SESSION['login']===true){
+
     require_once('db.php');
 
     // DEBUG_________________________________________________________________________________________________________
@@ -144,7 +148,20 @@
             <!-- floor -->
             <div class="form-group col-md-6">
                 <label for="floor">Floor</label>
-                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor 1, floor 2..." value="<?=$floor;?>">
+                <select id="floor" class="form-control" name="floor" >
+                    <option selected >Choose...</option>
+                    <option <?php if ($floor =='floor 1'){echo "selected";}?> >Floor 1</option>
+                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 2</option>
+                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 3</option>
+                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 4</option>
+                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 5</option>
+                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 6</option>
+                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 7</option>
+                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 8</option>
+                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 9</option>
+                    <option <?php if ($floor =='floor 2'){echo "selected";}?> >Floor 10</option>
+                    <option <?php if ($floor =='floor 3'){echo "selected";}?> >Floor 11</option>
+                </select>
             </div>
             <!-- location -->
             <div class="form-group col-md-6">
@@ -185,7 +202,15 @@
             ?>
         </form>
 
-    <?php include 'footer.php';?>
+    <?php include 'footer.php';
+    
+}
+else{
+    header("location: index.php");
+    exit;
+}
+    
+    ?>
 </div>
 </body>
 </html>
