@@ -21,11 +21,9 @@ session_start();
             <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
             <h2>Listing Light Change</h2>
         </div>
-        <a href='index.php?deconnexion=true'><span>Déconnexion</span></a>
-            
-
-            <!-- tester si l'utilisateur est connecté -->
-            <?php
+        <div class="d-flex flex-row justify-content-between align-items-end mr-bottom1">
+        <!-- tester si l'utilisateur est connecté -->
+        <?php
                 if(isset($_GET['deconnexion']))
                 { 
                    if($_GET['deconnexion']==true)
@@ -37,9 +35,20 @@ session_start();
                 else if($_SESSION['username'] !== ""){
                     $user = $_SESSION['username'];
                     // afficher un message
-                    echo "<br>Bonjour $user, vous êtes connectés";
+                    echo "<div class='logged-user'><br>Welcome $user, you are connected !</div>";
                 }
             ?>
+            <div class="btn-header">
+                <?php   
+                    // Buttons add, edit and delete 
+                    echo '<a href="add.php"><span class="fas fa-plus-circle"></span></a>';
+                ?>
+                <!-- Button off -->
+                <a href='index.php?deconnexion=true'><span class="fas fa-power-off"></span></a>
+            </div>
+        </div>
+        
+        
 
 
             <!-- Listing of the dashboard -->
@@ -88,8 +97,7 @@ session_start();
             </div>
 
             <?php 
-                // Buttons add, edit and delete 
-                echo '<a href="add.php"><button type="submit" class="btn btn-primary">Add</button></a>';
+              
             
             // Si le nombre d'élément dans le tableau
             // Alors tableau vide - donc pas d'enregistrement

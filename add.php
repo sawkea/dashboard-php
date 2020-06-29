@@ -125,8 +125,10 @@
                 <input type="text" class="form-control" id="brand" name="brand">
             </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Add</button>
+        <div class="d-flex btn-header align-items-center justify-content-between">
+            <a href="listing.php"><span class="far fa-arrow-alt-circle-left"></span></a>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
         </form>
 
     <?php include 'footer.php';?>

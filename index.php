@@ -10,33 +10,35 @@ session_start();
 <?php include 'header.php';?>
 
 <body>
-    <div id="form-login">
-        <!-- Form-login -->
-        <div class="container">
-            <h1>CONNECT</h1>
-            <form action="check-login.php" method="POST">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" spellcheck="false">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                
-                    <button type="submit" class="btn btn-primary" name="submit">Login</button>
-                 <?php
-                    if(isset($_GET['erreur'])){
-                        $err = $_GET['erreur'];
-                        if($err==1 || $err==2)
-                            echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-                    }
-                ?>
+    <div class="backg-login">
+        <div id="form-login">
+            <!-- Form-login -->
+            <div class="login">
+                <h1 class="text-center">CONNECT</h1>
+                <form action="check-login.php" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" spellcheck="false">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
                     
-            </form>
-    
-        <!-- footer -->
-        <?php include 'footer.php';?>
+                        <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                     <?php
+                        if(isset($_GET['erreur'])){
+                            $err = $_GET['erreur'];
+                            if($err==1 || $err==2)
+                                echo "<div class='logged-user color-incorrect text-center'><p>Incorrect user or password</p></div>";
+                        }
+                    ?>
+                        
+                </form>
+        
+            <!-- footer -->
+            <?php include 'footer.php';?>
+            </div>
         </div>
     </div>
 </body>

@@ -12,6 +12,6 @@
 
         $sth->execute();
         
-        header('Location: index.php');
+        header('Location: listing.php');
     }    
     
