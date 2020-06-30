@@ -38,7 +38,6 @@ session_start();
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
-                    
                         <button type="submit" class="btn btn-primary" name="submit">Login</button>
                      <?php
                         if(isset($_GET['erreur'])){

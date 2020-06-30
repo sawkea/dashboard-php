@@ -106,6 +106,10 @@ footer > p {
   text-align: center;
 }
 
+.modal {
+  color: var(--color-action-hover);
+}
+
 @media (max-width: 575.98px) {
   .thead-dark td:nth-child(1), .thead-dark td:nth-child(7), .thead-dark td:nth-child(6), .thead-dark td:nth-child(8) {
     display: none;

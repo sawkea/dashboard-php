@@ -81,9 +81,13 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         // button edit
                         echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
                         // button delete
-                        echo '<td><a href="delete.php?id='.$row['id'].'" ><span class="fas fa-trash-alt"></span></a></td>';
+                        echo '<td><a href="#" onClick="confirmation(4)"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        // echo '<td><a href="delete.php?id='.$row['id'].'" onClick="confirmation()"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        // echo '<td><a href="javascript:void(0)" onClick="confirmation($row['id'])"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+
                         echo '<tr>';
                     }  
+
                     ?>
                     </thead>
                 </table>
@@ -110,5 +114,8 @@ else{
 ?>
 
 </div>
+<script src="script.js"></script>
+
+
 </body>
 </html>
