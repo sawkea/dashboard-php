@@ -124,8 +124,8 @@ footer > p {
     display: none;
   }
 
-  #connection {
-    flex-direction: column;
+  #connection .align-items-end {
+    align-items: flex-start !important;
   }
 
   #m-queries-header {
