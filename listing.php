@@ -1,43 +1,49 @@
 <?PHP
 session_start();
-
+// test if variable exist with value true for access file listing.php
 if(isset($_SESSION['login']) && $_SESSION['login']===true){
     
 // Connection database
     require_once('db.php');
     
     // DEBUG_________________________________________________________________________________________________________
-    //afficher les erreurs PHP
+    // display php errors
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
+    // file header
+    include 'header.php';
 ?>
-
-<?php include 'header.php';?>
 
 <body>
 <div class="container">
     <!-- Titles of the dashboard -->
-    <h1>COMMON BUILDING</h1>
+    <div id="m-queries-header">
+        <h1>COMMON BUILDING</h1>
+                <div id="off-hidden" class="btn-header">
+                    <!-- Link off -->
+                    <a href='index.php?deconnexion=true'><span class="fas fa-power-off"></span></a>
+                </div>
+    </div>
         <div class="d-flex align-items-center">
             <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
             <h2>Listing Light Change</h2>
         </div>
         <div id="connection" class="d-flex justify-content-between align-items-end mr-bottom1">
+
         <?php
-                
-                if($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                    // afficher un message
-                    echo "<div class='logged-user'><br>Welcome $user, you are connected !</div>";
-                }
+            if($_SESSION['username'] !== ""){
+                $user = $_SESSION['username'];
+                // display this message if connection 
+                echo "<div class='logged-user'><br>Welcome<span class='user'> $user </span>, you are connected !</div>";
+            }
         ?>
             <div class="btn-header">
                 <?php   
-                    // Buttons add, edit and delete 
+                    // link add
                     echo '<a href="add.php"><span class="fas fa-plus-circle"></span></a>';
                 ?>
-                <!-- Button off -->
-                <a href='index.php?deconnexion=true'><span class="fas fa-power-off"></span></a>
+                <!-- Link off -->
+                <a href='index.php?deconnexion=true'><span id="btn-off" class="fas fa-power-off"></span></a>
             </div>
         </div>
         
@@ -78,30 +84,23 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         echo '<td>'.$row['position'].'</td>';
                         echo '<td>'.$row['power'].'</td>';
                         echo '<td>'.$row['brand'].'</td>';
-                        // button edit
+                        // link edit
                         echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
-                        // button delete
-                        echo '<td><a href="#" onClick="confirmation(4)"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
-                        // echo '<td><a href="delete.php?id='.$row['id'].'" onClick="confirmation()"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
-                        // echo '<td><a href="javascript:void(0)" onClick="confirmation($row['id'])"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
-
+                        // link delete
+                        echo '<td><a href="#" onClick="confirmation('.$row['id'].')"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
                         echo '<tr>';
                     }  
-
                     ?>
                     </thead>
                 </table>
             </div>
 
             <?php 
-              
-            
             // Si le nombre d'élément dans le tableau
             // Alors tableau vide - donc pas d'enregistrement
             if( count($result) === 0){
                 echo '<p>no work</p>';
             }
-        
             ?>  
 
     <?php include 'footer.php';
@@ -112,10 +111,7 @@ else{
     exit;
 }
 ?>
-
 </div>
 <script src="script.js"></script>
-
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?PHP 
 session_start();
     // DEBUG_________________________________________________________________________________________________________
-    //afficher les erreurs PHP
+    // display php errors
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 ?>
@@ -31,22 +31,25 @@ session_start();
                 <h1 class="text-center">CONNECT</h1>
                 <form action="check-login.php" method="POST">
                     <div class="form-group">
+                        <!-- Entry username -->
                         <label for="username">Username</label>
                         <input type="text" class="form-control" name="username" spellcheck="false">
                     </div>
                     <div class="form-group">
+                        <!-- Entry password -->
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
+                        <!-- button submit -->
                         <button type="submit" class="btn btn-primary" name="submit">Login</button>
-                     <?php
-                        if(isset($_GET['erreur'])){
-                            $err = $_GET['erreur'];
-                            if($err==1 || $err==2)
-                                echo "<div class='logged-user color-incorrect text-center'><p>Incorrect user or password</p></div>";
-                        }
-                    ?>
-                        
+                        <?php
+                            // if exists 'erreur' display message error
+                            if(isset($_GET['erreur'])){
+                                $err = $_GET['erreur'];
+                                if($err==1 || $err==2)
+                                    echo "<div class='logged-user color-incorrect text-center'><p>Incorrect user or password</p></div>";
+                            }
+                        ?>
                 </form>
         
             <!-- footer -->

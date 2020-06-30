@@ -3,7 +3,6 @@
 
     require_once('db.php');
     
-    var_dump($_GET['id']);    
 
     // test if the variable exists
     if( isset( $_GET['id'])){
