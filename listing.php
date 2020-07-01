@@ -87,7 +87,9 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         // link edit
                         echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
                         // link delete
-                        echo '<td><a href="#" onClick="confirmation('.$row['id'].')"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        echo '<td><a href="delete.php?id='.$row['id'].'" class="btn_delete"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        // echo '<td><a href="#" onClick="confirmation('.$row['id'].')"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        // echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></td>'
                         echo '<tr>';
                     }  
                     ?>
@@ -95,6 +97,16 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                 </table>
             </div>
 
+            <!-- modal -->
+    <div id="modal" class="hidden">
+        <div id="modal_dialogue">
+            <p id="modal_text">Etes-vous sûre de vouloir supprimer la ligne ?</p>    
+            <div id="modal_area_btn">
+                <button id="modal_btn_no">Non</button>
+                <button id="modal_btn_yes">Oui</button>
+            </div>
+        </div>
+    </div>
             <?php 
             // Si le nombre d'élément dans le tableau
             // Alors tableau vide - donc pas d'enregistrement
@@ -112,6 +124,7 @@ else{
 }
 ?>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>

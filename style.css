@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --font-principal: "Baloo Chettan 2";
   --color-table-header:	#2c3e50;
@@ -117,6 +118,66 @@ footer > p {
 .user {
   text-transform: uppercase;
   color: var(--color-table-header);
+}
+
+/* Boite de dialogue */
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* mettre ce fond pour ne pas avoir acces aux autres éléments */
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* faire disparaitre la boite de dialogue */
+#modal.hidden {
+  display: none;
+}
+
+#modal_dialogue {
+  width: 80%;
+  max-width: 640px;
+  padding: 40px;
+  background-color: white;
+  min-height: 120px;
+  border-radius: 15px;
+  box-shadow: 10px 14px 24px -6px rgba(0, 0, 0, 0.33);
+}
+
+#modal_text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: verdana;
+}
+
+#modal_area_btn {
+  text-align: center;
+}
+
+/* button yes and no */
+#modal_btn_no, #modal_btn_yes {
+  font-size: 1.6rem;
+  color: white;
+  font-weight: bold;
+  padding: 10px 35px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#modal_btn_no {
+  background-color: black;
+  margin-right: 20px;
+}
+
+#modal_btn_yes {
+  background-color: red;
 }
 
 @media (max-width: 575.98px) {
