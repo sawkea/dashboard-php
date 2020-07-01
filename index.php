@@ -29,6 +29,7 @@ session_start();
             <!-- Form-login -->
             <div class="login">
                 <h1 class="text-center">CONNECT</h1>
+                
                 <form action="check-login.php" method="POST">
                     <div class="form-group">
                         <!-- Entry username -->

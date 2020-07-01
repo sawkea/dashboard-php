@@ -71,6 +71,14 @@ span:hover {
   display: none;
 }
 
+#btn-off {
+  color: #0d1925;
+}
+
+#btn-off:hover {
+  color: #af0101;
+}
+
 footer > p {
   font-family: var(--font-principal);
   font-size: 0.75rem;
@@ -92,7 +100,7 @@ footer > p {
 #form-login .login {
   background-color: white;
   border-radius: 1rem;
-  max-width: 25rem;
+  width: 22rem;
   font-family: var(--font-principal);
   height: 24rem;
   margin-left: auto;
