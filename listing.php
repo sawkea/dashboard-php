@@ -100,10 +100,10 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
             <!-- modal -->
     <div id="modal" class="hidden">
         <div id="modal_dialogue">
-            <p id="modal_text">Etes-vous sûre de vouloir supprimer la ligne ?</p>    
+            <p id="modal_text">Are you sure you want to delete the line ?</p>    
             <div id="modal_area_btn">
-                <button id="modal_btn_no">Non</button>
-                <button id="modal_btn_yes">Oui</button>
+                <button id="modal_btn_no">Cancel</button>
+                <button id="modal_btn_yes">Yes</button>
             </div>
         </div>
     </div>
