@@ -50,19 +50,20 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
     
             <!-- Listing of the dashboard -->
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" data-toggle="table"  data-search="true" >
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Date change</th>
-                            <th scope="col">Floor</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">Power</th>
-                            <th scope="col">Brand</th>
+                            <th scope="col" data-sortable="true" data-field="date">Date change</th>
+                            <th scope="col" data-sortable="true" data-field="floor">Floor</th>
+                            <th scope="col" data-sortable="true" data-field="location">Location</th>
+                            <th scope="col" data-sortable="true" data-field="power">Power</th>
+                            <th scope="col" data-sortable="true" data-field="brand">Brand</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
-    
+                    </thead>    
+                    <tbody>
                 <?php 
                     // Preparation request
                     $sql = 'SELECT id, date_change, floor, position, power, brand FROM light_change';
@@ -93,7 +94,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         echo '<tr>';
                     }  
                     ?>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
 
@@ -127,5 +128,6 @@ else{
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

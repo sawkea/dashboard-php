@@ -123,7 +123,7 @@
             <div class="form-group col-md-6">
                 <label for="position">Location</label>
                 <select id="position" class="form-control" name="position">
-                    <option selected>Choose...</option>
+                    <option selected>Location...</option>
                     <option>left</option>
                     <option>right</option>
                     <option>background</option>
@@ -135,7 +135,14 @@
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="power">Light power</label>
-                <input type="text" class="form-control" id="power" name="power" placeholder="25W, 60W, 85W...">
+                <select id="power" class="form-control" name="power">
+                <option selected>Power...</option>
+                    <option>25W</option>
+                    <option>40W</option>
+                    <option>60W</option>
+                    <option>75W</option>
+                    <option>100W</option>
+                </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="brand">Brand</label>
