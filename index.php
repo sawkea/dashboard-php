@@ -14,6 +14,7 @@ session_start();
             session_unset();
         }
     }
+    
     // user is connected
     if(isset($_SESSION['login']) && $_SESSION['login']===true){
         header('Location: listing.php');
@@ -47,8 +48,9 @@ session_start();
                             // if exists 'erreur' display message error
                             if(isset($_GET['erreur'])){
                                 $err = $_GET['erreur'];
-                                if($err==1 || $err==2)
+                                if($err==1 || $err==2){
                                     echo "<div class='logged-user color-incorrect text-center'><p>Incorrect user or password</p></div>";
+                                }
                             }
                         ?>
                 </form>

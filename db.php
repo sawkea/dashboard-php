@@ -1,4 +1,9 @@
 <?php
+// DEBUG_________________________________________________________________________________________________________
+   // display php errors
+   error_reporting(E_ALL);
+   ini_set("display_errors", 1);
+
 // define('DATABASE', 'soniah_dashboard');
 // define('USER', 'soniah');
 // define('PWD', 'mW3SxOh6/3S+gQ==');
