@@ -88,7 +88,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                         // link edit
                         echo '<td><a href="edit.php?id='.$row['id'].'"><span class="far fa-edit"></span></a></td>';
                         // link delete
-                        echo '<td><a href="delete.php?id='.$row['id'].'" class="btn_delete"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
+                        echo '<td><a href="delete.php?id='.$row['id'].'"><span class="fas fa-trash-alt"></span></a></td>';
                         // echo '<td><a href="#" onClick="confirmation('.$row['id'].')"><span id="btn-delete" class="fas fa-trash-alt"></span></a></td>';
                         // echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></td>'
                         echo '<tr>';
