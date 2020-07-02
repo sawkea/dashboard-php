@@ -32,35 +32,43 @@
 //     location.replace('delete.php?id='+argument);
 //   })
 
-// Selecteurs
-// Selection des liens delete
-const deleteLinks = document.getElementsByClassName('btn_delete');
+
 // Selectionne le button no 
 const btnNo = document.getElementById('modal_btn_no');
 const btnYes = document.getElementById('modal_btn_yes');
 
+
+//Mettre un ecouteur sur l'ensemble du doc
+document.addEventListener('click', function(e){
+
+ 
+ //On récupère quelle élément est cliqué
+ const elementHasCliked = event.target;
+
+ //On vériffie que l'on n'a cliquez sur un span
+ if(elementHasCliked.tagName === 'SPAN'){
+
+    //On vérifie que le span cliqué contien tla classe de l'icône corbeille
+     if( elementHasCliked.classList.contains('fa-trash-alt') ){
+         e.preventDefault();
+         
+         //on réucpère le parent qui est le lien a
+         const elementParent = elementHasCliked.parentElement;
+         
+         // retirer la classe Hidden pour voir la boite de dialogue remove ou toggle
+         const modal = document.getElementById('modal');
+         modal.classList.remove('hidden');
+
+        // Ajout de la classe ready-to-delete au lien 
+        elementParent.classList.add('ready-to-delete');
+     }
+ }
+});
 // Boucle qui va affecter l'évenement clic à tous les liens a ayant la classe btn_delete
 // à tous les élements qui sont dans notre sélection(collectionHTML) deleteLinks
 
 // pour chaque element (singulier) d'un tout (contenant plusieurs elements) -> du coup je trouve ça plus logique
-for( deleteLink of deleteLinks ){
-    console.log('coucou');
-    // Affecte l'évenement click
-    // sur click s'executera une fonction sans nom (dite anonyme)
-    deleteLink.addEventListener('click', function(e){
-        // pour ne pas executer les évènements par défauts (là aller sur la page delete.php)
-        e.preventDefault();
 
-        // Selectionne l'élément ayant ID modal
-        const modal = document.getElementById('modal');
-        console.log(modal);
-        // retirer la classe Hidden pour voir la boite de dialogue remove ou toggle
-        modal.classList.remove('hidden');
-
-        // Ajout de la classe ready-to-delete au lien que l'on vient de cliquer
-        this.classList.add('ready-to-delete');
-    });
-}
 
 // Ajout de l'évènement clic au button no
 btnNo.addEventListener('click', function(){
@@ -86,4 +94,3 @@ btnYes.addEventListener('click', function(){
         location.href = elementToDelete.getAttribute('href');
     }
 });
-

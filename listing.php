@@ -53,12 +53,12 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                 <table class="table" data-toggle="table" data-search="true" >
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col" data-sortable="true" data-field="date">Date change</th>
-                            <th scope="col" data-sortable="true" data-field="floor">Floor</th>
-                            <th scope="col" data-sortable="true" data-field="location">Location</th>
-                            <th scope="col" data-sortable="true" data-field="power">Power</th>
-                            <th scope="col" data-sortable="true" data-field="brand">Brand</th>
+                            <th scope="col" data-sortable="true">#</th>
+                            <th scope="col" data-sortable="true">Date change</th>
+                            <th scope="col" data-sortable="true">Floor</th>
+                            <th scope="col" data-sortable="true">Location</th>
+                            <th scope="col" data-sortable="true">Power</th>
+                            <th scope="col" data-sortable="true">Brand</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>

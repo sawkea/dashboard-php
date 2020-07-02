@@ -179,7 +179,14 @@
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="power">Light power</label>
-                <input type="text" class="form-control" id="power" name="power" placeholder="25W, 60W, 85W..." value="<?=$power;?>" >
+                <select id="power" class="form-control" name="power" >
+                    <option selected >Power...</option>
+                    <option <?php if ($power =='25W'){echo "selected";}?> >25W</option>
+                    <option <?php if ($power =='40W'){echo "selected";}?> >40W</option>
+                    <option <?php if ($power =='60W'){echo "selected";}?> >60W</option>
+                    <option <?php if ($power =='75W'){echo "selected";}?> >75W</option>
+                    <option <?php if ($power =='100W'){echo "selected";}?> >100W</option>
+                </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="brand">Brand</label>
