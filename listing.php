@@ -50,7 +50,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
     
             <!-- Listing of the dashboard -->
             <div class="table-responsive">
-                <table class="table" data-toggle="table"  data-search="true" >
+                <table class="table" data-toggle="table" data-search="true" >
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>

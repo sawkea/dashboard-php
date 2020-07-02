@@ -44,6 +44,7 @@ const btnYes = document.getElementById('modal_btn_yes');
 
 // pour chaque element (singulier) d'un tout (contenant plusieurs elements) -> du coup je trouve ça plus logique
 for( deleteLink of deleteLinks ){
+    console.log('coucou');
     // Affecte l'évenement click
     // sur click s'executera une fonction sans nom (dite anonyme)
     deleteLink.addEventListener('click', function(e){
