@@ -20,7 +20,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
     <div id="m-queries-header">
         <h1>COMMON BUILDING</h1>
                 <div id="off-hidden" class="btn-header">
-                    <!-- Link off -->
+                    <!-- Link off for version mobile-->
                     <a href='index.php?deconnexion=true'><span class="fas fa-power-off"></span></a>
                 </div>
     </div>
@@ -53,14 +53,14 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <td scope="col">#</td>
-                            <td scope="col">Date change</td>
-                            <td scope="col">Floor</td>
-                            <td scope="col">Location</td>
-                            <td scope="col">Power</td>
-                            <td scope="col">Brand</td>
-                            <td scope="col"></td>
-                            <td scope="col"></td>
+                            <th scope="col">#</th>
+                            <th scope="col">Date change</th>
+                            <th scope="col">Floor</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Power</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
     
                 <?php 
@@ -98,15 +98,16 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
             </div>
 
             <!-- modal -->
-    <div id="modal" class="hidden">
-        <div id="modal_dialogue">
-            <p id="modal_text">Are you sure you want to delete the line ?</p>    
-            <div id="modal_area_btn">
-                <button id="modal_btn_no">Cancel</button>
-                <button id="modal_btn_yes">Yes</button>
+            <div id="modal" class="hidden">
+                <div id="modal_dialogue">
+                    <p id="warning"><span class="fas fa-exclamation-triangle"></span>Warning</p>
+                    <p id="modal_text">Are you sure you want to delete the line ?</p>    
+                    <div id="modal_area_btn">
+                        <button id="modal_btn_no">Cancel</button>
+                        <button id="modal_btn_yes">Yes</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
             <?php 
             // Si le nombre d'élément dans le tableau
             // Alors tableau vide - donc pas d'enregistrement

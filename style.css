@@ -29,7 +29,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.thead-dark tr:nth-child(1) {
+.table-responsive .table .thead-dark th {
   background-color: var(--color-table-header);
   color: var(--color-text-header);
 }
@@ -150,11 +150,24 @@ footer > p {
 #modal_dialogue {
   width: 60%;
   max-width: 400px;
-  padding: 40px;
+  padding: 20px;
   background-color: white;
   min-height: 100px;
   border-radius: 6px;
   box-shadow: 10px 14px 24px -6px rgba(0, 0, 0, 0.33);
+}
+#modal_dialogue #warning span {
+  color: #df0000;
+  font-size: 2rem;
+  margin-right: 0.75rem;
+}
+#modal_dialogue #warning {
+  font-family: var(--font-principal);
+  color: #df0000;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: solid var(--color-action) 0.25px;
 }
 
 #modal_text {
@@ -172,7 +185,7 @@ footer > p {
 #modal_btn_no, #modal_btn_yes {
   font-size: 1rem;
   color: white;
-  padding: 10px 35px;
+  padding: 8px 20px;
   border: none;
   display: inline-block;
   cursor: pointer;
