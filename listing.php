@@ -1,28 +1,29 @@
 <?PHP
 session_start();
-// test if variable exist with value true for access file listing.php
-if(isset($_SESSION['login']) && $_SESSION['login']===true){
-    
-// Connection database
-    require_once('db.php');
-    
-    // DEBUG_________________________________________________________________________________________________________
+require_once('db.php');
+   // DEBUG_________________________________________________________________________________________________________
     // display php errors
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
+
+    // test if variable Empty for access file listing.php
+    if(empty($_SESSION['username'])&& empty($_SESSION['password'])){
+        header('Location: index.php');
+    }
+
     // file header
     include 'header.php';
-?>
+    ?>
 
 <body>
 <div class="container">
     <!-- Titles of the dashboard -->
     <div id="m-queries-header">
         <h1>COMMON BUILDING</h1>
-                <div id="off-hidden" class="btn-header">
-                    <!-- Link off for version mobile-->
-                    <a href='index.php?deconnexion=true'><span class="fas fa-power-off"></span></a>
-                </div>
+            <div id="off-hidden" class="btn-header">
+                <!-- Link off for version mobile-->
+                <a href='logout.php'><span id="btn-off-mobile" class="fas fa-power-off"></span></a>
+            </div>
     </div>
         <div class="d-flex align-items-center">
             <p><img src="img/favicon-dashboard.png" alt="Logo dashboard"></p>
@@ -43,7 +44,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
                     echo '<a href="add.php"><span class="fas fa-plus-circle"></span></a>';
                 ?>
                 <!-- Link off -->
-                <a href='index.php?deconnexion=true'><span id="btn-off" class="fas fa-power-off"></span></a>
+                <a href='logout.php'><span id="btn-off" class="fas fa-power-off"></span></a>
             </div>
         </div>
         
@@ -115,16 +116,11 @@ if(isset($_SESSION['login']) && $_SESSION['login']===true){
             if( count($result) === 0){
                 echo '<p>no work</p>';
             }
+        
             ?>  
 
-    <?php include 'footer.php';
-    
-}
-else{
-    header("location: index.php");
-    exit;
-}
-?>
+    <?php include 'footer.php';?>
+
 </div>
 
 <script src="script.js"></script>

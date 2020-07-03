@@ -1,14 +1,16 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['login']) && $_SESSION['login']===true){
-
     require_once('db.php');
-
     // DEBUG_________________________________________________________________________________________________________
-    //afficher les erreurs PHP
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+     // display php errors
+     error_reporting(E_ALL);
+     ini_set("display_errors", 1);
+
+    // test if variable Empty for access file listing.php
+    if(empty($_SESSION['username'])&& empty($_SESSION['password'])){
+         header('Location: index.php');
+    }
 
     //  Initialisation des variables
     $date_change = '';
@@ -209,15 +211,8 @@
             ?>
         </form>
 
-    <?php include 'footer.php';
-    
-}
-else{
-    header("location: index.php");
-    exit;
-}
-    
-    ?>
+    <?php include 'footer.php';?>
+
 </div>
 </body>
 </html>

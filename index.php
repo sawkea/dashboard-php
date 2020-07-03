@@ -1,28 +1,43 @@
 <?PHP 
 session_start();
-    // DEBUG_________________________________________________________________________________________________________
-    // display php errors
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
-?>
 
-<?php 
-    // test user deconnected
-    if(isset($_GET['deconnexion'])){ 
-        if($_GET['deconnexion']==true){  
-            $_SESSION['login'] = false;
-            session_unset();
+    require_once('db.php');
+
+    $username = '';
+    $password = '';
+
+
+    if(isset($_POST['submit'])){   
+        if(!empty($_POST['username']) && !empty($_POST['username'])){
+        $sql='SELECT username, password FROM users WHERE username=:username';
+        $sth = $dbh->prepare($sql);
+        $sth->bindValue(':username', $_POST['username'], PDO::PARAM_STR);
+        $sth->execute();
+        $data = $sth->fetch();
+
+        $username = $data['username'];
+        $password = $data['password'];
+        
+        if($_POST['username'] == $username && $_POST['password'] == $password){
+            $_SESSION['timeout'] = time();
+            $_SESSION['username'] = $username;
+            header('Location: listing.php');
         }
-    }
-    
-    // user is connected
-    if(isset($_SESSION['login']) && $_SESSION['login']===true){
-        header('Location: listing.php');
-        exit;
+        // incorrect username and password
+        else{
+           header('Location: index.php?erreur=1');  
+        } 
+     } 
+     else{
+        header('Location: index.php?erreur=2');  
+     }
+
     }
 
     // header 
-    include 'header.php';?>
+    include 'header.php';
+    
+    ?>
 
 <body>
     <div class="backg-login">
@@ -31,7 +46,7 @@ session_start();
             <div class="login">
                 <h1 class="text-center">CONNECT</h1>
                 
-                <form action="check-login.php" method="POST">
+                <form action="index.php" method="POST">
                     <div class="form-group">
                         <!-- Entry username -->
                         <label for="username">Username</label>

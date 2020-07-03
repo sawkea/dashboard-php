@@ -227,6 +227,10 @@ footer > p {
   #btn-off {
     display: none;
   }
+
+  #btn-off-mobile {
+    color: #0d1925;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
