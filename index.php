@@ -36,7 +36,6 @@ session_start();
 
     // header 
     include 'header.php';
-    
     ?>
 
 <body>
@@ -47,7 +46,7 @@ session_start();
                 <h1 class="text-center">CONNECT</h1>
                 
                 <form action="index.php" method="POST">
-                    <div class="form-group">
+                    <div class="form-group ">
                         <!-- Entry username -->
                         <label for="username">Username</label>
                         <input type="text" class="form-control" name="username" spellcheck="false">
@@ -58,7 +57,7 @@ session_start();
                         <input type="password" class="form-control" name="password">
                     </div>
                         <!-- button submit -->
-                        <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg" name="submit">Login</button>
                         <?php
                             // if exists 'erreur' display message error
                             if(isset($_GET['erreur'])){

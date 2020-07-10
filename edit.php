@@ -33,16 +33,6 @@
         
         $data = $sth->fetch(PDO::FETCH_ASSOC);
         
-        // //Si pas de resultat de la requête
-        // //data est boolean
-        // if( gettype($data) === "boolean"){
-        //     //on redirige la personne sur la page index
-        //     header('Location: index.php');
-        
-        //     //on arrête le script
-        //     exit;
-        // }
-
         // on met entre crochets les noms correspondants à la base de données
         $date_change = $data['date_change'];
         $floor = $data['floor'];

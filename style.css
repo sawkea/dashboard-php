@@ -118,6 +118,9 @@ footer > p {
   color: red;
   text-align: center;
 }
+#form-login .login button {
+  margin-left: 37%;
+}
 
 .modal {
   color: var(--color-action-hover);

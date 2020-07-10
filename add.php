@@ -82,6 +82,7 @@
         // Redirection après insertion
         header('Location: listing.php');
     }
+   
 ?>
 
 <?php include 'header.php';?>
@@ -103,7 +104,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="date_change">Date change</label>
-                <input type="date" class="form-control" id="date_change" name="date_change">
+                <input type="date" class="form-control" id="date_change" name="date_change" required>
             </div>
         </div>
         
@@ -111,7 +112,7 @@
             <!-- floor -->
             <div class="form-group col-md-6">
                 <label for="floor">Floor</label>
-                <select id="floor" class="form-control" name="floor" >
+                <select id="floor" class="form-control" name="floor" required>
                     <option selected >Floor...</option>
                     <option>Floor 1</option>
                     <option>Floor 2</option>
@@ -129,7 +130,7 @@
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="position">Location</label>
-                <select id="position" class="form-control" name="position">
+                <select id="position" class="form-control" name="position" required>
                     <option selected>Location...</option>
                     <option>left</option>
                     <option>right</option>
@@ -142,7 +143,7 @@
             <!-- location -->
             <div class="form-group col-md-6">
                 <label for="power">Light power</label>
-                <select id="power" class="form-control" name="power">
+                <select id="power" class="form-control" name="power" required>
                 <option selected>Power...</option>
                     <option>25W</option>
                     <option>40W</option>
@@ -153,7 +154,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="brand" name="brand">
+                <input type="text" class="form-control" id="brand" name="brand" required>
             </div>
         </div>
         <div class="d-flex btn-header align-items-center justify-content-between">

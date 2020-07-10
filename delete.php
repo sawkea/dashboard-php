@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+     // test if variable Empty for access file listing.php
+     if(empty($_SESSION['username'])&& empty($_SESSION['password'])){
+        header('Location: index.php');
+    }
+    
     require_once('db.php');
     
 
